@@ -1,0 +1,130 @@
+Harmonogram prac projektowych 
+
+Tydzień 1: Wstęp do przedmiotu i zarys planu. 
+
+ 
+
+Tydzień 2: Planowanie i analiza wymagań 
+Zebranie wymagań projektowych: 
+Ustalenie specyfikacji pracy układu wentylatorów i czujnika temperatury. 
+Określenie funkcji UART: monitorowanie temperatury, prędkości wentylatorów, sterowanie zdalne. 
+
+ 
+
+Analiza komponentów: 
+
+Wybór odpowiedniego czujnika temperatury (Wybrano: DHT11). 
+
+Wybór wentylatorów i układów sterujących (PWM do regulacji prędkości). 
+
+Ustalenie parametrów komunikacji UART: prędkość transmisji, format danych, protokół komunikacji. 
+
+ 
+
+ 
+
+Tydzień 3-6: Projektowanie układu 
+
+Opracowanie schematu blokowego systemu.  
+
+ Schemat: FRDM KL05, czujnik temperatury, wentylatory, moduł UART do komunikacji z komputerem. 
+
+ 
+
+Projektowanie schematu elektrycznego. 
+
+Stworzenie schematu połączeń: FRDM KL05, czujnik temperatury, wentylatory, interfejs UART (TX/RX). 
+
+ 
+
+Przygotowanie oprogramowania (część koncepcyjna). 
+
+Planowanie algorytmów i doszkalanie się: odczyt danych z czujnika, sterowanie wentylatorami, implementacja UART. 
+
+        4.   Realizacja zamówienia elementów. 
+
+Tydzień 7: Implementacja oprogramowania 
+
+Odbiór zamówionych modułów, zapoznanie się ponowne z dokumentacja oraz lutowanie pinów. 
+
+Wstępne testowanie poszczególnych modułów( Jako iż nie mamy dotychczas mikrokontrolera na którym chcemy zrobić projekt to użyliśmy ESPka.) 
+
+ 
+
+ 
+
+Tydzień 8-10: Implementacja oprogramowania 
+
+Inicjalizacja czujnika temperatury i UART. 
+
+Konfiguracja czujnika temperatury. 
+
+Inicjalizacja UART na FRDM KL05: konfiguracja prędkości transmisji, format danych . 
+
+ 
+
+ 
+
+ 
+
+Implementacja algorytmu sterowania wentylatorami. 
+
+Odczyt temperatury i sterowanie prędkością wentylatorów w zależności od zmierzonej temperatury. 
+
+Obsługa PWM do regulacji prędkości. 
+
+ 
+
+Implementacja komunikacji przez UART. 
+
+Opracowanie protokołu komunikacji: wysyłanie danych o temperaturze i stanie wentylatorów do komputera. 
+
+Odbieranie danych z zewnętrznego urządzenia, np. do zdalnego sterowania wentylatorami. 
+
+ 
+
+Tydzień 11: Testy i weryfikacja 
+
+Testowanie komunikacji UART. 
+
+Sprawdzenie poprawności wysyłania i odbierania danych. 
+
+Monitorowanie temperatury i prędkości wentylatorów na komputerze. 
+
+ 
+
+Testowanie układu na poziomie sprzętowym. 
+
+Sprawdzenie działania całego systemu: czujnik temperatury, sterowanie wentylatorami, komunikacja przez UART. 
+
+ 
+
+Testowanie oprogramowania. 
+
+Weryfikacja, czy prędkość wentylatorów zmienia się prawidłowo w zależności od temperatury. 
+
+Testowanie sterowania zewnętrznego przez UART, np. zmiana prędkości wentylatorów z poziomu komputera. 
+
+ 
+
+Analiza i poprawki. 
+
+Identyfikacja błędów w komunikacji UART, sterowaniu wentylatorami lub odczytach temperatury. 
+
+Wprowadzenie niezbędnych poprawek w kodzie lub połączeniach sprzętowych. 
+
+ 
+
+Tydzień 12: Dokumentacja 
+
+Tworzenie dokumentacji technicznej. 
+
+Opis algorytmu komunikacji przez UART, konfiguracji czujnika temperatury i sterowania wentylatorami. 
+
+ 
+
+Finalna weryfikacja. 
+
+Kompleksowe testy działania całego systemu: wentylatory, czujnik, UART. 
+
+Przegląd dokumentacji technicznej i przygotowanie projektu do prezentacji. 
