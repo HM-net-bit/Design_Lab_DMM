@@ -1,19 +1,22 @@
+FRDM-KL05Z
 
 
-
-MODUŁ ZASILAJĄCY MB12
+-MODUŁ ZASILAJĄCY MB12
 https://www.handsontec.com/dataspecs/mb102-ps.pdf
 
-3x WENTYLATORKI 5 VOLT
+-3x WENTYLATORKI 5 VOLT
 https://botland.com.pl/wentylatory-montazowe/9872-wentylator-5v-30x30x10mm-2-przewody-5904422338541.html
 
-3x KONWERTER RS485 UART (Wypożyczony z uczelni)
+-3x KONWERTER RS485 UART (Wypożyczony z uczelni)
 https://www.ti.com/lit/ds/symlink/sn65hvd485e.pdf?ts=1732292175646&ref_url=https%253A%252F%252Fwww.google.com%252F
 
-CZUJNIK TEMPERATURY DHT11
+-CZUJNIK TEMPERATURY DHT11
 https://www.mouser.com/datasheet/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf
 
-ZASILACZ
+-ZASILACZ
 https://botland.com.pl/zasilacze-dogniazdkowe/5043-zasilacz-impulsowy-12v25a-220v-240v-wtyk-dc-5525mm-5902270703290.html
 
-PŁYTKA STYKOWA
+-DWUKANAŁOWY STEROWNIK SILNIKA
+https://www.ti.com/lit/ds/symlink/drv8833.pdf?ts=1732257724882&ref_url=https%253A%252F%252Fwww.google.com%252F
+
+-PŁYTKA STYKOWA
