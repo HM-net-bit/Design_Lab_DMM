@@ -14,9 +14,7 @@ https://www.ti.com/lit/ds/symlink/sn65hvd485e.pdf?ts=1732292175646&ref_url=https
 https://www.mouser.com/datasheet/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf
 
 -WYŚWIETLACZ LCD z KONWERTEREM MAGISTRALI I2C
-
 Konwerter oparty na układzie PCF8574:
 https://www.nxp.com/docs/en/data-sheet/PCF8574_PCF8574A.pdf
-
 https://www.digikey.sg/htmldatasheets/production/2410219/0/0/1/tc1602a-01t.html
 
