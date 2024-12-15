@@ -31,7 +31,7 @@ Wstępne testowanie poszczególnych modułów( Jako iż nie mamy dotychczas mikr
 Tydzień 8-10: Implementacja oprogramowania 
 Inicjalizacja czujnika temperatury i UART. 
 Konfiguracja czujnika temperatury. 
-Inicjalizacja UART na FRDM KL05: konfiguracja prędkości transmisji, format danych . 
+Inicjalizacja UART na ESP-WROOM-32: konfiguracja prędkości transmisji, format danych . 
 Implementacja algorytmu sterowania wentylatorami. 
 Odczyt temperatury i sterowanie prędkością wentylatorów w zależności od zmierzonej temperatury. 
 Obsługa PWM do regulacji prędkości. 
