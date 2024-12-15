@@ -1,35 +1,19 @@
-Ten kod realizuje komunikację z urządzeniem za pomocą standardu RS485 przy użyciu portu szeregowego. Został on zaprojektowany z myślą o użyciu popularnego układu SoftwareSerial, 
-który umożliwia komunikację na dowolnych pinach mikrokontrolera.
+Skrócony opis kodu komunikacji RS485
+Kod umożliwia komunikację przez interfejs RS485 z użyciem portu szeregowego i biblioteki SoftwareSerial, która pozwala na korzystanie z dowolnych pinów mikrokontrolera.
 
-1. Biblioteka SoftwareSerial
-SoftwareSerial: Używana jest do tworzenia dodatkowych portów szeregowych w mikrokontrolerze. W tym przypadku port szeregowy RS485 jest obsługiwany przez piny RS485_RXD_PIN (16) i RS485_TXD_PIN (17).
+Biblioteka SoftwareSerial: Tworzy dodatkowy port szeregowy do obsługi RS485 przy użyciu pinów RX (16) i TX (17).
 
-2. Definicje pinów
-RS485_TXD_PIN (17): Pin odpowiedzialny za transmisję danych (TX) na interfejsie RS485.
-RS485_RXD_PIN (16): Pin odpowiedzialny za odbiór danych (RX) na interfejsie RS485.
-RS485_DE_PIN (22): Pin służący do sterowania kierunkiem transmisji. DE (Driver Enable) musi być ustawione na wysokim poziomie, aby urządzenie mogło wysyłać dane na szynie RS485.
+Definicje pinów:
+RS485_TXD_PIN (17): Pin transmisji danych (TX).
+RS485_RXD_PIN (16): Pin odbioru danych (RX).
+RS485_DE_PIN (22): Pin sterujący kierunkiem transmisji.
 
-3. Obiekt SoftwareSerial
-SoftwareSerial RS485Serial(RS485_RXD_PIN, RS485_TXD_PIN): Tworzy obiekt o nazwie RS485Serial, który obsługuje komunikację za pomocą portu szeregowego RS485, 
-korzystając z wcześniej zdefiniowanych pinów do odbioru i transmisji danych.
+Funkcja setup():
+Inicjalizuje port szeregowy i RS485.
+Ustawia pin RS485_DE_PIN do kontrolowania trybu nadawania/odbioru.
 
-4. Funkcja setup()
-Serial.begin(115200): Inicjalizuje standardowy port szeregowy (do komunikacji z komputerem) z prędkością 115200 bps.
-Serial.println("RS485 Test Start"): Wypisuje komunikat startowy na konsolę, aby wskazać początek testu.
-pinMode(RS485_DE_PIN, OUTPUT): Ustawia pin RS485_DE_PIN jako wyjście, aby sterować kierunkiem transmisji.
-digitalWrite(RS485_DE_PIN, LOW): Ustawia pin RS485_DE_PIN na niski stan. W tym przypadku oznacza to, że urządzenie będzie tylko odbierać dane z magistrali RS485 (dezaktywacja nadawania).
-RS485Serial.begin(9600): Inicjalizuje port szeregowy RS485 z prędkością transmisji 9600 bps.
-Serial.println("RS485 Initialized"): Wypisuje na konsolę komunikat informujący, że port RS485 został zainicjalizowany.
+Funkcja loop():
+Co sekundę wysyła wiadomość tekstową przez RS485, przełączając RS485_DE_PIN między trybem nadawania i odbioru.
 
-5. Funkcja loop()
-Serial.println("Wysyłanie wiadomości przez RS485..."): Wypisuje komunikat, że urządzenie przygotowuje się do wysłania wiadomości przez RS485.
-digitalWrite(RS485_DE_PIN, HIGH): Ustawia pin RS485_DE_PIN na wysoki stan, co włącza tryb nadawania (urządzenie może teraz wysyłać dane).
-delay(50): Krótkie opóźnienie (50 ms) przed wysłaniem wiadomości, pozwalające na stabilizację sygnałów.
-RS485Serial.println("Testowa wiadomość przez RS485"): Wysyła wiadomość tekstową przez interfejs RS485.
-delay(50): Kolejne opóźnienie, zapewniające, że dane zostaną poprawnie wysłane.
-digitalWrite(RS485_DE_PIN, LOW): Po wysłaniu wiadomości pin RS485_DE_PIN zostaje ustawiony na niski stan, co przełącza urządzenie w tryb odbioru.
-delay(1000): Opóźnienie 1000 ms (1 sekunda), przed ponownym wysłaniem wiadomości.
-
-Podsumowanie
-Kod wykonuje cykliczną komunikację przez interfejs RS485. Co sekundę wysyła testową wiadomość "Testowa wiadomość przez RS485" przez RS485. 
-Używa portu szeregowego SoftwareSerial do komunikacji na dwóch pinach mikrokontrolera i steruje kierunkiem transmisji za pomocą pinu RS485_DE_PIN.
+Podsumowanie:
+Kod cyklicznie wysyła wiadomość "Testowa wiadomość przez RS485" przez interfejs RS485, sterując kierunkiem transmisji za pomocą pinu RS485_DE_PIN.
