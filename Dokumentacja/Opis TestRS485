@@ -3,11 +3,6 @@ Kod umożliwia komunikację przez interfejs RS485 z użyciem portu szeregowego i
 
 Biblioteka SoftwareSerial: Tworzy dodatkowy port szeregowy do obsługi RS485 przy użyciu pinów RX (16) i TX (17).
 
-Definicje pinów:
-RS485_TXD_PIN (17): Pin transmisji danych (TX).
-RS485_RXD_PIN (16): Pin odbioru danych (RX).
-RS485_DE_PIN (22): Pin sterujący kierunkiem transmisji.
-
 Funkcja setup():
 Inicjalizuje port szeregowy i RS485.
 Ustawia pin RS485_DE_PIN do kontrolowania trybu nadawania/odbioru.
@@ -16,4 +11,6 @@ Funkcja loop():
 Co sekundę wysyła wiadomość tekstową przez RS485, przełączając RS485_DE_PIN między trybem nadawania i odbioru.
 
 Podsumowanie:
-Kod cyklicznie wysyła wiadomość "Testowa wiadomość przez RS485" przez interfejs RS485, sterując kierunkiem transmisji za pomocą pinu RS485_DE_PIN.
+Kod cyklicznie wysyła wiadomość "Testowa wiadomość przez RS485" przez interfejs RS485, sterując kierunkiem transmisji za pomocą pinu RS485_DE_PIN. Program został stworzony do
+ogólnego zapoznania z modułem i identyfikacji początkowych błędów jakie napotykaliśmy (główny problem: niestykanie pinów A i B, który wyświetlał "chińskie znaczki" przez niedociśćnięte 
+piny, który zabrał nam ładnych pare godzin)
