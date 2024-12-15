@@ -1,0 +1,14 @@
+
+
+-3x WENTYLATORKI 5 VOLT
+https://botland.com.pl/wentylatory-montazowe/9872-wentylator-5v-30x30x10mm-2-przewody-5904422338541.html
+
+-1x KONWERTER RS485 UART (Wypożyczony z uczelni)
+https://www.ti.com/lit/ds/symlink/sn65hvd485e.pdf?ts=1732292175646&ref_url=https%253A%252F%252Fwww.google.com%252F
+
+-CZUJNIK TEMPERATURY DHT11 (Wypożyczony z uczelni)
+https://www.mouser.com/datasheet/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf
+
+-WYŚWIETLACZ LCD
+https://www.waveshare.com/datasheet/LCD_en_PDF/LCD1602.pdf
+https://www.waveshare.com/datasheet/LCD_en_PDF/HD44780.pdf
