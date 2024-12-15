@@ -5,7 +5,7 @@ Tydzień 1: Wstęp do przedmiotu i zarys planu.
 Tydzień 2: Planowanie i analiza wymagań 
 Zebranie wymagań projektowych: 
 Ustalenie specyfikacji pracy układu wentylatorów i czujnika temperatury. 
-Określenie funkcji UART: monitorowanie temperatury, prędkości wentylatorów, sterowanie zdalne. 
+Określenie funkcji UART: monitorowanie temperatury, prędkości wentylatorów. 
 
  
 
@@ -19,7 +19,7 @@ Tydzień 3-6: Projektowanie układu
 Opracowanie schematu blokowego systemu.  
 Schemat: FRDM KL05, czujnik temperatury, wentylatory, moduł UART do komunikacji z komputerem. 
 Projektowanie schematu elektrycznego. 
-Stworzenie schematu połączeń: FRDM KL05, czujnik temperatury, wentylatory, interfejs UART (TX/RX). 
+Stworzenie schematu połączeń: czujnik temperatury, wentylatory, interfejs UART (TX/RX). 
 Przygotowanie oprogramowania (część koncepcyjna). 
 Planowanie algorytmów i doszkalanie się: odczyt danych z czujnika, sterowanie wentylatorami, implementacja UART. 
 Realizacja zamówienia elementów. 
