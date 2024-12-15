@@ -1,87 +1,46 @@
 Dokumentacja kodu sterowania systemem monitorowania temperatury i wentylatorami
+Poniższy kod realizuje system monitorowania temperatury i sterowania wentylatorami, wykorzystując:
 
-Poniższy kod realizuje funkcjonalność systemu monitorowania temperatury i sterowania wentylatorami.
-
-System wykorzystuje:
-- Czujnik DHT11 do odczytu temperatury otoczenia.
-- Wyświetlacz LCD z interfejsem I2C do prezentacji aktualnej temperatury.
-- Sterowniki PWM do kontrolowania prędkości silników wentylatorów w zależności od odczytanej temperatury.
-- Interfejs RS485 do wysyłania informacji o temperaturze.
-
-Kod zawiera obsługę podstawowych poleceń z konsoli szeregowej do włączania/wyłączania trzeciego wentylatora oraz logikę dynamicznego sterowania prędkością wentylatorów w oparciu o zmierzoną temperaturę.
+Czujnik DHT11 do pomiaru temperatury.
+Wyświetlacz LCD z interfejsem I2C do prezentacji temperatury.
+Sterowniki PWM do regulacji prędkości wentylatorów.
+RS485 do przesyłania informacji o temperaturze.
 
 Używane biblioteki:
-- Wire: Komunikacja z urządzeniami I2C.
-- Adafruit_Sensor oraz DHT: Obsługa czujnika temperatury DHT11.
-- LiquidCrystal_I2C: Obsługa wyświetlacza LCD z interfejsem I2C.
-- SoftwareSerial: Implementacja portu szeregowego dla komunikacji RS485.
-
-Definicje pinów i stałych
-
-Symbol	    Opis
-I2C_SDA	 -  Pin danych I2C (GPIO 26).
-I2C_SCL	 -  Pin zegara I2C (GPIO 25).
-DHT_PIN	 -  Pin podłączenia czujnika DHT11 (GPIO 13).
-DHT_TYPE -  Typ czujnika DHT (DHT11).
-MOTOR*_IN*	- Piny sterujące kierunkiem dla poszczególnych silników.
-RS485_*	   -  Piny dla komunikacji RS485 (TX, RX, DE).
-
-Zmienne globalne:
-- SoftwareSerial RS485Serial: Port szeregowy do komunikacji z interfejsem RS485.
-- DHT dht: Obiekt obsługujący czujnik temperatury i wilgotności DHT11.
-- LiquidCrystal_I2C lcd: Obiekt sterujący wyświetlaczem LCD.
-- bool motor3Enabled: Flaga określająca stan trzeciego wentylatora (włączony/wyłączony).
+Wire: Komunikacja I2C.
+Adafruit_Sensor i DHT: Obsługa czujnika DHT11.
+LiquidCrystal_I2C: Obsługa wyświetlacza LCD.
+SoftwareSerial: Implementacja portu szeregowego dla RS485.
 
 Funkcje:
-void setup()
-Konfiguruje wszystkie komponenty systemu:
-
-- Serial: Uruchamia interfejs szeregowy do debugowania.
+1. void setup()
+Inicjalizuje wszystkie komponenty:
+- Serial: Uruchamia port szeregowy do komunikacji.
 - I2C: Inicjuje magistralę I2C.
-- Czujnik DHT: Rozpoczyna komunikację z czujnikiem temperatury.
-- Wyświetlacz LCD: Ustawia początkowe parametry wyświetlacza i wyświetla komunikat inicjalizacji.
-- PWM dla silników: Konfiguruje PWM dla trzech silników, przypisując im kanały sterowania.
-- RS485: Ustawia piny oraz inicjuje komunikację przez RS485.
+- DHT: Inicjuje czujnik DHT11.
+- LCD: Ustawia wyświetlacz i wyświetla komunikat.
+- PWM: Ustawia PWM dla trzech silników.
+- RS485: Inicjuje port RS485.
 
-void loop()
-Realizuje główną logikę sterowania:
-Obsługa poleceń szeregowych:
-- START_FAN: Włącza trzeci wentylator.
-- STOP_FAN: Wyłącza trzeci wentylator.
-- Obsługuje nieznane komendy.
+2. void loop()
+Realizuje główną logikę:
+- Polecenia szeregowe: Obsługuje komendy START_FAN i STOP_FAN do włączania/wyłączania wentylatora.
+- Odczyt temperatury: Zczytuje temperaturę z DHT11 i wyświetla ją na LCD.
+- Sterowanie PWM: Mapuje temperaturę do wartości PWM w celu sterowania prędkością wentylatorów.
+- RS485: Przesyła dane o temperaturze przez RS485.
 
-Odczyt temperatury z DHT11:
-- Jeśli odczyt nie powiódł się, wyświetlany jest komunikat błędu.
-- Jeśli odczyt się powiódł, temperatura jest prezentowana na wyświetlaczu LCD.
+- Mapowanie temperatury na PWM:
+ >21-24°C: PWM od 0 do 150.
+ >25-30°C: PWM od 238 do 248.
+ >31°C i więcej: PWM 255 (maksymalna prędkość).
+ >Poniżej 21°C: Wentylatory wyłączone.
 
-Sterowanie PWM:
-Prędkość wentylatorów jest mapowana w zależności od zakresu temperatury:
-- 21-24°C: Niskie wartości PWM.
-- 25-30°C: Średnie wartości PWM.
-- 31°C i więcej: Maksymalne PWM.
-- Poniżej 21°C: Wentylatory są wyłączone.
-- Włączenie trzeciego wentylatora zależy od flagi motor3Enabled.
+Komunikacja RS485:
+System wysyła komunikaty w formacie tekstowym: "Temperatura: 24.50 C".
+Po wysłaniu danych, linia DE zostaje ustawiona na niski stan, kończąc transmisję.
 
-Wysyłanie danych przez RS485:
-Informacje o temperaturze są przesyłane w formacie tekstowym przez interfejs RS485.
-Mapowanie temperatury na PWM
-Logika mapowania opiera się na funkcji map() i dostosowuje wartości PWM:
-- 21-24°C: 0-150 PWM.
-- 25-30°C: 238-248 PWM.
-- 31°C i więcej: 255 PWM (maksymalna prędkość).
-- Poniżej 21°C: Wentylatory są wyłączone (0 PWM).
-
-Komunikacja RS485
-System wysyła dane w formie tekstowej:
-- Przykładowy komunikat: "Temperatura: 24.50 C\n"
-- Po każdej transmisji linia DE jest ustawiana na niski stan, by zakończyć transmisję.
-- Dodanie obsługi wilgotności: Rozszerzenie funkcji o odczyt wilgotności z czujnika DHT11.
-- Sterowanie kierunkiem silników: Aktualny kod wymusza zawsze jeden kierunek obrotów.
-- Obsługa błędów RS485: Implementacja reakcji na błędy transmisji.
-- Dynamiczne wyświetlanie komunikatów na LCD: Rozdzielenie temperatury i statusu wentylatorów na dwa wiersze wyświetlacza.
-
-Zastosowania
-Kod jest idealny dla systemów takich jak:
-- Klimatyzacja sterowana temperaturą.
-- Automatyczne sterowanie wentylacją w pomieszczeniach.
-- Monitorowanie temperatury z zdalnym przesyłem danych.
+Zastosowania:
+Kod może być używany w:
+Klimatyzacji sterowanej temperaturą.
+Automatycznym sterowaniu wentylacją.
+Systemach monitorowania temperatury z przesyłem danych.
