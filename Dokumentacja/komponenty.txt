@@ -1,4 +1,8 @@
+- Płytka
+https://www.espressif.com/sites/default/files/documentation/esp32_technical_reference_manual_en.pdf
 
+- Silnik DRV8833
+https://www.ti.com/lit/ds/symlink/drv8833.pdf?ts=1734289784009&ref_url=https%253A%252F%252Fwww.google.com%252F
 
 -3x WENTYLATORKI 5 VOLT
 https://botland.com.pl/wentylatory-montazowe/9872-wentylator-5v-30x30x10mm-2-przewody-5904422338541.html
