@@ -17,7 +17,7 @@ Ustalenie parametrów komunikacji UART: prędkość transmisji, format danych, p
 
 Tydzień 3-6: Projektowanie układu 
 Opracowanie schematu blokowego systemu.  
-Schemat: FRDM KL05, czujnik temperatury, wentylatory, moduł UART do komunikacji z komputerem. 
+Schemat: ESP-WROOM-32, czujnik temperatury, wentylatory, moduł UART do komunikacji z komputerem. 
 Projektowanie schematu elektrycznego. 
 Stworzenie schematu połączeń: czujnik temperatury, wentylatory, interfejs UART (TX/RX). 
 Przygotowanie oprogramowania (część koncepcyjna). 
@@ -25,8 +25,8 @@ Planowanie algorytmów i doszkalanie się: odczyt danych z czujnika, sterowanie 
 Realizacja zamówienia elementów. 
 
 Tydzień 7: Implementacja oprogramowania 
-Odbiór zamówionych modułów, zapoznanie się ponowne z dokumentacja oraz lutowanie pinów. 
-Wstępne testowanie poszczególnych modułów( Jako iż nie mamy dotychczas mikrokontrolera na którym chcemy zrobić projekt to użyliśmy ESPka.) 
+Odbiór zamówionych modułów, zapoznanie się ponowne z dokumentacją. 
+Wstępne testowanie poszczególnych modułów
 
 Tydzień 8-10: Implementacja oprogramowania 
 Inicjalizacja czujnika temperatury i UART. 
